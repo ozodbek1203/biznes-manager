@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Biznes Manager</title>
+
+    <link rel="stylesheet" href="biznes.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            📊 <span>Biznes</span>
+        </div>
+
+        <nav>
+
+            <button class="menu-btn active" onclick="showPage('dashboard', this)">
+                🏠 Dashboard
+            </button>
+
+            <button class="menu-btn" onclick="showPage('incomePage', this)">
+                💰 Daromad
+            </button>
+
+            <button class="menu-btn" onclick="showPage('expensePage', this)">
+                📉 Xarajat
+            </button>
+
+            <button class="menu-btn" onclick="showPage('productPage', this)">
+                📦 Mahsulotlar
+            </button>
+
+            <button class="menu-btn" onclick="showPage('clientPage', this)">
+                👥 Mijozlar
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- TOP -->
+
+        <header class="topbar">
+
+            <div>
+                <h1>Biznes Manager</h1>
+                <p>Biznesingizni boshqaring</p>
+            </div>
+
+            <div class="user">
+                👤 Ozodbek
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard" class="page active-page">
+
+            <h2>Dashboard</h2>
+
+            <div class="cards">
+
+                <div class="card income-card">
+                    <span>💰</span>
+                    <div>
+                        <p>Daromad</p>
+                        <h3 id="income">0 so'm</h3>
+                    </div>
+                </div>
+
+
+                <div class="card expense-card">
+                    <span>📉</span>
+                    <div>
+                        <p>Xarajat</p>
+                        <h3 id="expense">0 so'm</h3>
+                    </div>
+                </div>
+
+
+                <div class="card profit-card">
+                    <span>💵</span>
+                    <div>
+                        <p>Sof foyda</p>
+                        <h3 id="profit">0 so'm</h3>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <span>👥</span>
+                    <div>
+                        <p>Mijozlar</p>
+                        <h3 id="clientCount">0</h3>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="box">
+
+                    <h2>💰 Oxirgi daromadlar</h2>
+
+                    <ul id="dashboardIncomeList"></ul>
+
+                </div>
+
+
+                <div class="box">
+
+                    <h2>📉 Oxirgi xarajatlar</h2>
+
+                    <ul id="dashboardExpenseList"></ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DAROMAD -->
+
+        <section id="incomePage" class="page">
+
+            <h2>💰 Daromadlar</h2>
+
+            <div class="box">
+
+                <input
+                    type="text"
+                    id="incomeName"
+                    placeholder="Daromad nomi"
+                >
+
+                <input
+                    type="number"
+                    id="incomeAmount"
+                    placeholder="Summa"
+                >
+
+                <button onclick="addIncome()">
+                    + Daromad qo'shish
+                </button>
+
+            </div>
+
+
+            <div class="box">
+
+                <h2>Daromadlar ro'yxati</h2>
+
+                <ul id="incomeList"></ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- XARAJAT -->
+
+        <section id="expensePage" class="page">
+
+            <h2>📉 Xarajatlar</h2>
+
+            <div class="box">
+
+                <input
+                    type="text"
+                    id="expenseName"
+                    placeholder="Xarajat nomi"
+                >
+
+                <input
+                    type="number"
+                    id="expenseAmount"
+                    placeholder="Summa"
+                >
+
+                <button onclick="addExpense()">
+                    + Xarajat qo'shish
+                </button>
+
+            </div>
+
+
+            <div class="box">
+
+                <h2>Xarajatlar ro'yxati</h2>
+
+                <ul id="expenseList"></ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- MAHSULOT -->
+
+        <section id="productPage" class="page">
+
+            <h2>📦 Mahsulotlar</h2>
+
+            <div class="box">
+
+                <input
+                    type="text"
+                    id="productName"
+                    placeholder="Mahsulot nomi"
+                >
+
+                <input
+                    type="number"
+                    id="productPrice"
+                    placeholder="Narxi"
+                >
+
+                <input
+                    type="number"
+                    id="productCount"
+                    placeholder="Soni"
+                >
+
+                <button onclick="addProduct()">
+                    + Mahsulot qo'shish
+                </button>
+
+            </div>
+
+
+            <div class="box">
+
+                <h2>Mahsulotlar ro'yxati</h2>
+
+                <ul id="productList"></ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- MIJOZ -->
+
+        <section id="clientPage" class="page">
+
+            <h2>👥 Mijozlar</h2>
+
+            <div class="box">
+
+                <input
+                    type="text"
+                    id="clientName"
+                    placeholder="Mijoz ismi"
+                >
+
+                <input
+                    type="text"
+                    id="clientPhone"
+                    placeholder="Telefon raqami"
+                >
+
+                <button onclick="addClient()">
+                    + Mijoz qo'shish
+                </button>
+
+            </div>
+
+
+            <div class="box">
+
+                <h2>Mijozlar ro'yxati</h2>
+
+                <ul id="clientList"></ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+   
